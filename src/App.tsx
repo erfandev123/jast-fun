@@ -27,7 +27,7 @@ import { ReelItem, SharePortal } from './components/ReelItem';
 import { LikesList } from './components/LikesList';
 import { AnalyticsModal } from './components/AnalyticsModal';
 import { getPost } from './services/postService';
-import EnnvoLogo from './assets/Ennvo.png';
+import { EnnvoLogo } from './components/EnnvoLogo';
 
 // Test connection strictly once on boot
 async function testFirestoreConnection() {
@@ -301,7 +301,7 @@ export default function App() {
               className="flex flex-col items-center justify-center"
             >
               <div className="w-24 h-24 rounded-3xl overflow-hidden mb-6 shadow-[0_8px_30px_rgb(59,130,246,0.25)] border border-gray-100 flex-shrink-0">
-                <img src={EnnvoLogo} alt="Ennvo Logo" className="w-full h-full object-cover" />
+                <EnnvoLogo className="w-full h-full" />
               </div>
               <h1 className="text-3xl font-black tracking-tighter bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent drop-shadow-sm mb-1">
                 Ennvo

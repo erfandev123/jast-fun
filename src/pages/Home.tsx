@@ -9,7 +9,7 @@ import { subscribeStories, uploadStory, Story } from '../services/storyService';
 import { followUser } from '../services/followService';
 import { Post, Comment, User as AppUser } from '../types';
 import { PostItem } from '../components/PostItem';
-import EnnvoLogo from '../assets/Ennvo.png';
+import { EnnvoLogo } from '../components/EnnvoLogo';
 
 const contacts = [
   { id: 1, name: 'cute_coder', avatar: 'https://picsum.photos/seed/cute/32/32', online: true },
@@ -474,7 +474,7 @@ export default function Home() {
           >
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 rounded-[10px] overflow-hidden shadow-sm border border-gray-100 flex-shrink-0">
-                <img src={EnnvoLogo} alt="Ennvo Logo" className="w-full h-full object-cover" />
+                <EnnvoLogo className="w-full h-full" />
               </div>
               <h1 className="text-[26px] font-black tracking-tighter bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent drop-shadow-sm">Ennvo</h1>
             </div>
@@ -653,11 +653,11 @@ export default function Home() {
               <div className="absolute top-0 left-0 right-0 p-4 flex justify-between items-start z-10 bg-gradient-to-b from-black/50 to-transparent">
                 <button onClick={() => { setStoryPreview(null); setStoryFile(null); }} className="p-2 text-white bg-black/40 rounded-full"><X className="w-6 h-6" /></button>
               </div>
-              <div className="flex-1 flex items-center justify-center bg-black/90">
+              <div className="flex-1 flex items-center justify-center bg-black/90 min-h-0 overflow-hidden relative">
                 {storyFile?.type.startsWith('video') ? (
-                  <video src={storyPreview} controls className="max-w-full max-h-full rounded-2xl" autoPlay loop muted playsInline />
+                  <video src={storyPreview} controls className="w-full h-full object-contain rounded-2xl" autoPlay loop muted playsInline />
                 ) : (
-                  <img src={storyPreview} className="max-w-full max-h-full rounded-2xl object-contain" alt="Story preview" />
+                  <img src={storyPreview} className="w-full h-full object-contain rounded-2xl" alt="Story preview" />
                 )}
               </div>
               <div className="p-4 bg-black flex justify-between items-center z-10 pb-8">

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Mail, Lock, User, Eye, EyeOff, Chrome, Github } from 'lucide-react';
 import { useAppStore } from '../store';
 import { signUp, signIn, signInWithGoogle } from '../services/authService';
-import EnnvoLogo from '../assets/Ennvo.png';
+import { EnnvoLogo } from '../components/EnnvoLogo';
 
 export default function Auth() {
   const [isLogin, setIsLogin] = useState(true);
@@ -64,7 +64,7 @@ export default function Auth() {
         {/* Left Side - Branding (PC Only) */}
         <div className="hidden md:flex flex-col max-w-[400px] mb-12 md:mb-0">
           <div className="mb-6 w-28 h-28 rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
-            <img src={EnnvoLogo} alt="Ennvo Logo" className="w-full h-full object-cover" />
+            <EnnvoLogo className="w-full h-full" />
           </div>
           <h1 className="text-6xl font-black tracking-tighter bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent drop-shadow-sm mb-4 select-none">
             Ennvo
@@ -81,7 +81,7 @@ export default function Auth() {
             {/* Logo (Mobile Only) */}
             <div className="md:hidden flex flex-col items-center mb-6">
               <div className="w-16 h-16 rounded-2xl overflow-hidden mb-3 shadow-lg border border-gray-100">
-                <img src={EnnvoLogo} alt="Ennvo Logo" className="w-full h-full object-cover" />
+                <EnnvoLogo className="w-full h-full" />
               </div>
               <h1 className="text-4xl font-black tracking-tighter bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent drop-shadow-sm select-none">
                 Ennvo

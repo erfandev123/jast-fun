@@ -1,7 +1,7 @@
 import React from 'react';
 import { Home, Search, PlaySquare, MessageCircle, Heart, PlusSquare, User, Menu, Bell } from 'lucide-react';
 import { useAppStore } from '../store';
-import EnnvoLogo from '../assets/Ennvo.png';
+import { EnnvoLogo } from '../components/EnnvoLogo';
 
 export default function Sidebar({ currentPage }: { currentPage: string }) {
   const { currentUser, pushPage, notificationCount, messageCount, setViewingUser } = useAppStore();
@@ -24,7 +24,7 @@ export default function Sidebar({ currentPage }: { currentPage: string }) {
       {/* Logo */}
       <div className="mb-8 px-3 flex items-center h-10 cursor-pointer space-x-3" onClick={() => pushPage('home')}>
         <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden shadow-sm border border-gray-100">
-          <img src={EnnvoLogo} alt="Ennvo Logo" className="w-full h-full object-cover" />
+          <EnnvoLogo className="w-full h-full" />
         </div>
         <div className={`hidden ${isCollapsed ? 'hidden' : 'md:block'} overflow-hidden`}>
           <span className="font-black text-[26px] tracking-tighter bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent drop-shadow-sm">Ennvo</span>

@@ -9,7 +9,7 @@ import { uploadMedia } from '../services/githubStorage';
 
 import { useAppStore } from '../store';
 import { safeFile } from '../utils';
-import EnnvoLogo from '../assets/Ennvo.png';
+import { EnnvoLogo } from '../components/EnnvoLogo';
 import { subscribeConversations, subscribeMessages, sendMessage, createConversation } from '../services/chatService';
 import { subscribePresence, setTyping, subscribeTyping } from '../services/presenceService';
 import { followUser } from '../services/followService';
@@ -638,7 +638,7 @@ export default function Messages() {
         <div className="p-4 border-b border-gray-100 flex items-center justify-between sticky top-0 bg-white z-10">
           <div className="flex items-center space-x-2 cursor-pointer">
             <div className="w-8 h-8 rounded-xl overflow-hidden shadow-sm border border-gray-100 flex-shrink-0">
-              <img src={EnnvoLogo} alt="Ennvo Logo" className="w-full h-full object-cover" />
+              <EnnvoLogo className="w-full h-full" />
             </div>
             <h1 className="text-[24px] font-black tracking-tighter bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent drop-shadow-sm">Ennvo</h1>
             <ChevronDown className="w-5 h-5 text-gray-900 mt-1" />
@@ -1014,15 +1014,16 @@ export default function Messages() {
 
           {/* Input Area */}
           <div className={`p-3 md:p-4 ${chatTheme === 'bg-white' ? 'bg-white' : 'bg-transparent'} z-10 pb-6 transition-colors duration-300 w-full flex flex-col relative`}>
-            {showEmojiPicker && (
-              <div className="absolute bottom-[calc(100%+10px)] left-2 md:left-4 z-50">
-                 <EmojiPicker 
-                   onEmojiClick={(emojiData: EmojiClickData) => setInputText(prev => prev + emojiData.emoji)} 
-                   previewConfig={{showPreview: false}}
-                   skinTonesDisabled
-                 />
-              </div>
-            )}
+            
+            <div className={`absolute bottom-[calc(100%+10px)] left-2 md:left-4 z-50 transition-opacity duration-150 ${showEmojiPicker ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+               <EmojiPicker 
+                 onEmojiClick={(emojiData: EmojiClickData) => setInputText(prev => prev + emojiData.emoji)} 
+                 previewConfig={{showPreview: false}}
+                 skinTonesDisabled
+                 lazyLoadEmojis={true}
+               />
+            </div>
+            
             {replyingTo && (
               <div className={`flex items-center justify-between rounded-t-2xl px-3 py-2 mx-2 -mb-2 z-0 shadow-sm relative ${chatTheme === 'bg-white' ? 'bg-gray-50 border border-b-0 border-gray-100' : 'bg-black/10 text-white backdrop-blur-md'}`}>
                 <div className={`flex-1 min-w-0 border-l-[3px] ${chatTheme === 'bg-white' ? 'border-blue-500' : 'border-white/50'} pl-2 flex items-center`}>
@@ -1202,7 +1203,7 @@ export default function Messages() {
       ) : (
         <div className="hidden md:flex flex-1 flex-col items-center justify-center bg-white">
           <div className="w-24 h-24 border border-gray-100 rounded-3xl flex items-center justify-center mb-6 overflow-hidden shadow-[0_8px_30px_rgb(59,130,246,0.15)]">
-            <img src={EnnvoLogo} alt="Ennvo Logo" className="w-full h-full object-cover" />
+            <EnnvoLogo className="w-full h-full" />
           </div>
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Your Messages</h2>
           <p className="text-gray-500 mb-6">Send private photos and messages to a friend or group.</p>
