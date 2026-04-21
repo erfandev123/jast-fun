@@ -9,6 +9,7 @@ import { subscribeStories, uploadStory, Story } from '../services/storyService';
 import { followUser } from '../services/followService';
 import { Post, Comment, User as AppUser } from '../types';
 import { PostItem } from '../components/PostItem';
+import EnnvoLogo from '../assets/Ennvo.png';
 
 const contacts = [
   { id: 1, name: 'cute_coder', avatar: 'https://picsum.photos/seed/cute/32/32', online: true },
@@ -473,7 +474,7 @@ export default function Home() {
           >
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 rounded-[10px] overflow-hidden shadow-sm border border-gray-100 flex-shrink-0">
-                <img src="/Ennvo.png" alt="Ennvo Logo" className="w-full h-full object-cover" />
+                <img src={EnnvoLogo} alt="Ennvo Logo" className="w-full h-full object-cover" />
               </div>
               <h1 className="text-[26px] font-black tracking-tighter bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent drop-shadow-sm">Ennvo</h1>
             </div>

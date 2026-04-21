@@ -9,6 +9,7 @@ import { uploadMedia } from '../services/githubStorage';
 
 import { useAppStore } from '../store';
 import { safeFile } from '../utils';
+import EnnvoLogo from '../assets/Ennvo.png';
 import { subscribeConversations, subscribeMessages, sendMessage, createConversation } from '../services/chatService';
 import { subscribePresence, setTyping, subscribeTyping } from '../services/presenceService';
 import { followUser } from '../services/followService';
@@ -637,7 +638,7 @@ export default function Messages() {
         <div className="p-4 border-b border-gray-100 flex items-center justify-between sticky top-0 bg-white z-10">
           <div className="flex items-center space-x-2 cursor-pointer">
             <div className="w-8 h-8 rounded-xl overflow-hidden shadow-sm border border-gray-100 flex-shrink-0">
-              <img src="/Ennvo.png" alt="Ennvo Logo" className="w-full h-full object-cover" />
+              <img src={EnnvoLogo} alt="Ennvo Logo" className="w-full h-full object-cover" />
             </div>
             <h1 className="text-[24px] font-black tracking-tighter bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent drop-shadow-sm">Ennvo</h1>
             <ChevronDown className="w-5 h-5 text-gray-900 mt-1" />
@@ -1200,8 +1201,8 @@ export default function Messages() {
         )
       ) : (
         <div className="hidden md:flex flex-1 flex-col items-center justify-center bg-white">
-          <div className="w-24 h-24 border-2 border-black rounded-full flex items-center justify-center mb-4">
-            <Send className="w-10 h-10 text-black -ml-1" />
+          <div className="w-24 h-24 border border-gray-100 rounded-3xl flex items-center justify-center mb-6 overflow-hidden shadow-[0_8px_30px_rgb(59,130,246,0.15)]">
+            <img src={EnnvoLogo} alt="Ennvo Logo" className="w-full h-full object-cover" />
           </div>
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Your Messages</h2>
           <p className="text-gray-500 mb-6">Send private photos and messages to a friend or group.</p>
