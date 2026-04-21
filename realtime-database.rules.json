@@ -1,0 +1,23 @@
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null",
+    "presence": {
+      "$uid": {
+        ".write": "auth != null && auth.uid == $uid"
+      }
+    },
+    "typing": {
+      "$chatId": {
+        "$uid": {
+          ".write": "auth != null && auth.uid == $uid"
+        }
+      }
+    },
+    "messages": {
+      "$chatId": {
+        ".indexOn": ["timestamp"]
+      }
+    }
+  }
+}

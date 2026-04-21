@@ -1,0 +1,28 @@
+{
+  "rules": {
+    "presence": {
+      "$uid": {
+        ".read": "auth != null",
+        ".write": "auth != null && auth.uid == $uid"
+      }
+    },
+    "typing": {
+      "$conversationId": {
+        ".read": "auth != null",
+        "$uid": {
+          ".write": "auth != null && auth.uid == $uid"
+        }
+      }
+    },
+    "messageStatus": {
+      "$conversationId": {
+        ".read": "auth != null",
+        "$messageId": {
+          "$uid": {
+            ".write": "auth != null && auth.uid == $uid"
+          }
+        }
+      }
+    }
+  }
+}

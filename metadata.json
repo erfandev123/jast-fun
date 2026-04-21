@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Ennvo",
+  "description": "A high-performance social media platform with real-time messaging, stories, and media sharing.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
